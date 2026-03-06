@@ -1,0 +1,26 @@
+.login_button {
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+
+    width: 25%;
+    padding: 0.6em 1.2em;
+
+    color: white;
+    background-color: #00000086;
+    border: 2px groove rgb(255, 255, 255);
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.login_button:hover {
+    color: #646cff;
+    border: 2px groove #646cff;
+}
+
+.login_button:focus,
+.login_button:focus-visible {
+    outline: none;
+}

@@ -3,8 +3,15 @@
 ## Description
 Small React practice project to learn component structure, props, and state handling.
 
+## Learning Goals
+- understand React component architecture
+- practice reusable UI components
+- learn list rendering with Array.map()
+- implement local state management using useState
+
 ## Tech Stack
 - React
+- ReactDOM
 - JavaScript
 
 ## Project Structure
@@ -14,13 +21,20 @@ src/
   components/
     layout/
     ui/
+      Card.jsx
+      LoginButton.jsx
   data/
-    user_data.jsx
+    User.jsx
   server/
   styles/
     layout/
+      content.css
     ui/
+      buttons.css
+      cards.css
+      users.css
     App.css
+    Fonts.css
     Index.css
   App.jsx
   index.jsx
@@ -46,25 +60,26 @@ Local: http://localhost:3000/
 - cleaned default React template
 - implemented basic component structure
 - separated layout and UI styles
-- created reusable Card component
 - implemented simple user data structure
 - prepared project folder architecture
 
 ## Phase 2
-- implemented reusable UI components (Card, Form, Button)
-- introduced component composition using children
-- implemented conditional rendering (login state example)
-- added simple form handling with submit event
-- created dynamic list rendering using map()
+- implemented reusable UI components 
+- introduced component composition using `children`
 - separated UI components into dedicated folders
+- implemented basic component rendering with props
 
 ## Phase 3
 - introduced dynamic rendering of components using JavaScript arrays
 - implemented list rendering with `Array.map()`
 - created a user list dataset for iterative rendering
 - added `key` props for React list elements
-- separated static component rendering from dynamic list rendering
 - expanded layout structure to support list-based UI sections
 
 
-..in Progress
+## Phase 4
+- introduced reusable `Card` UI component
+- implemented local state management using `useState`
+- added login state toggle example
+- implemented conditional rendering based on application state
+- improved UI composition using reusable wrapper components
