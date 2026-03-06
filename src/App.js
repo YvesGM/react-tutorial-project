@@ -1,30 +1,39 @@
 /**
  * Main application component.
  *
- * Demonstrates basic React concepts such as:
+ * Demonstrates fundamental React concepts including:
  * - component composition
  * - passing props to child components
  * - dynamic list rendering using `Array.map()`
  * - local state management using `useState()`
  * - conditional rendering based on application state
+ * - custom hooks for state logic separation
+ * - event handling and controlled inputs
  *
- * The application renders user information using a reusable
- * components such as `User`, `Card`, and `LoginButton`.
+ * The application renders user information and task data
+ * using reusable UI components such as `User`, `Card`,
+ * `LoginButton`, `TaskListInput`, and `AddTaskButton`.
  *
  * @module App
  */
 import { useState } from 'react';
 
 import User from './data/User.jsx';
+import TaskList from './data/TaskList.jsx';
 import Card from './components/ui/Card.jsx';
 import LoginButton from './components/ui/LoginButton.jsx';
+import TaskListInput from './components/ui/Input.jsx';
+import AddTaskButton from './components/ui/AddTaskButton.jsx';
+import useTasks from './hooks/useTasks.js';
 
 import './styles/App.css';
 import './styles/Fonts.css';
 import './styles/layout/content.css';
 import './styles/ui/users.css';
 import './styles/ui/cards.css';
+import './styles/ui/lists.css';
 import './styles/ui/buttons.css';
+import './styles/ui/inputs.css';
 
 /**
  * Represents a user object used throughout the application.
@@ -94,22 +103,58 @@ const userList = [
  * Root React component.
  *
  * Responsibilities:
- * - render static user compontents (Phase 2)
+ * - render static user components (Phase 2)
  * - render dynamic user lists (Phase 3)
  * - manage login state using `useState()` (Phase 4)
  * - conditionally render UI based on login state
- * 
+ * - manage task state using a custom hook (`useTasks`) (Phase 5)
+ * - handle controlled input for task creation
+ *
  * @returns {JSX.Element} Rendered application UI.
  */
 function App() {
 
-  /** 
-   * Local login state used for conditional rendering in Phase 4 
-   * 
+  /**
+   * Local login states used for conditional rendering examples.
+   *
    * @type {[boolean, Function]}
-  */
+   */
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  /**
+   * Secondary login example used for demonstrating
+   * inline conditional rendering patterns.
+   *
+   * @type {[boolean, Function]}
+   */
   const [isLoggedIn2, setIsLoggedIn2] = useState(false);
+
+  /**
+   * Task management hook providing the task list
+   * and helper functions for modifying the list.
+   *
+   * @type {{ todoList: string[], addTask: Function, deleteTask: Function }}
+   */
+  const { todoList, addTask, deleteTask } = useTasks();
+
+  /**
+   * Controlled input state for creating new tasks.
+   *
+   * @type {[string, Function]}
+   */
+  const [newTask, setNewTask] = useState("");
+
+  /**
+   * Handles changes in the task input field.
+   *
+   * Updates the controlled input state whenever
+   * the user types into the input element.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} event - Input change event.
+   */
+  function handleTaskChange(event) {
+    setNewTask(event.target.value);
+  }
 
   return (
     <div className="app_container">
@@ -184,6 +229,28 @@ function App() {
           <LoginButton type="button" onClick={() => setIsLoggedIn2(!isLoggedIn2)}>
             {isLoggedIn2 ? 'Log Out' : 'Log In'}
           </LoginButton>
+        </Card>
+
+
+
+        <Card>
+          <div className='add_task_container'>
+            <TaskListInput
+              value={newTask}
+              onChange={handleTaskChange}
+            />
+            <AddTaskButton
+              onClick={() => {
+                addTask(newTask);
+                setNewTask("")
+              }}>
+              Add Task
+            </AddTaskButton>
+          </div>
+
+          <TaskList
+            tasks={todoList}
+          />
         </Card>
 
       </div>
