@@ -5,7 +5,6 @@ Small React practice project to learn component structure, props, and state hand
 
 ## Tech Stack
 - React
-- Vite
 - JavaScript
 
 ## Project Structure
@@ -16,18 +15,37 @@ src/
     App.css
     Index.css
   App.jsx
-  Index.jsx
+  index.jsx
 
 ## Project Setup (initial creation)
 - Terminal: "npx create-react-app ."
 
 ## Installation
 git clone <repository-url>
-cd react-tutorial
+cd react-tutorial-project
 npm install
 
 ## Development
 npm start
 
 ## Development Server
-Local: http://localhost:5173/
+Local: http://localhost:3000/
+
+# Work-Flow
+
+## Phase 1
+- initial project setup
+- cleaned default React template
+- implemented basic component structure
+- separated layout and UI styles
+- created reusable Card component
+- implemented simple user data structure
+- prepared project folder architecture
+
+## Phase 2
+- implemented reusable UI components (Card, Form, Button)
+- introduced component composition using children
+- implemented conditional rendering (login state example)
+- added simple form handling with submit event
+- created dynamic list rendering using map()
+- separated UI components into dedicated folders
