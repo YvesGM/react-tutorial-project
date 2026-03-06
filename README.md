@@ -9,9 +9,17 @@ Small React practice project to learn component structure, props, and state hand
 
 ## Project Structure
 src/
-  server/
   client/
+    pages/
+  components/
+    layout/
+    ui/
+  data/
+    user_data.jsx
+  server/
   styles/
+    layout/
+    ui/
     App.css
     Index.css
   App.jsx
