@@ -31,7 +31,12 @@ export default function useTasks() {
     function addTask(task) {
         if (!task.trim()) return; // Prevent adding empty tasks
 
-        setTodoList(prev => [...prev, task])
+        const newTask = {
+            id: Date.now(),
+            text: task
+        }
+
+        setTodoList(prev => [...prev, newTask])
     }
 
     /**

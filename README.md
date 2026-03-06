@@ -33,13 +33,12 @@ React practice project to learn fundamental React concepts such as:
 
 ## Project Structure
 src/
-  client/
-    pages/
   components/
     layout/
     ui/
       AddTaskButton.jsx
       Card.jsx
+      DeleteTaskButton.jsx
       Input.jsx
       LoginButton.jsx
   data/
@@ -130,4 +129,6 @@ Local: http://localhost:3000/
 - implemented dynamic task list functionality
 - added controlled input component for task creation
 - implemented event handling for adding new tasks
-- separated state logic from UI components using hooks
+- implemented task deletion with `deleteTask`
+- introduced reusable `DeleteTaskButton` component
+- separated state management logic from UI components

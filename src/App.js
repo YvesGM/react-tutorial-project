@@ -250,6 +250,7 @@ function App() {
 
           <TaskList
             tasks={todoList}
+            deleteTask={deleteTask}
           />
         </Card>
 
