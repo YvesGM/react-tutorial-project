@@ -102,14 +102,15 @@ const userList = [
  * @returns {JSX.Element} Rendered application UI.
  */
 function App() {
-  
+
   /** 
    * Local login state used for conditional rendering in Phase 4 
    * 
    * @type {[boolean, Function]}
   */
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+  const [isLoggedIn2, setIsLoggedIn2] = useState(false);
+
   return (
     <div className="app_container">
       <div className='content_container'>
@@ -159,6 +160,7 @@ function App() {
 
         {/* Phase 4: Conditional Rendering/local State handling */}
         <Card>
+          <h2 className='login_message'>Example 1:</h2>
           {isLoggedIn ? (
             <>
               <h2 className='login_message'>Welcome back, {USERDATA.me.name}!</h2>
@@ -174,6 +176,14 @@ function App() {
               </LoginButton>
             </>
           )}
+        </Card>
+
+        <Card>
+          <h2 className='login_message'>Example 2:</h2>
+          <h2 className='login_message'>{isLoggedIn2 ? `Welcome back, ${USERDATA.sister.name}!` : 'Please log in'}</h2>
+          <LoginButton type="button" onClick={() => setIsLoggedIn2(!isLoggedIn2)}>
+            {isLoggedIn2 ? 'Log Out' : 'Log In'}
+          </LoginButton>
         </Card>
 
       </div>
