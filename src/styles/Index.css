@@ -7,8 +7,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   width: 100%;
   min-height: 100vh;
-  color: black;
+  color: #ffffff;
+  background-color: #242424;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
 }

@@ -1,9 +1,14 @@
 /**
  * Main application component.
  *
- * Renders a small list of example users using the reusable `User` component.
- * The user data is currently defined locally inside this file but can later
- * be moved into a dedicated data or context layer.
+ * Demonstrates basic React concepts such as:
+ * - component composition
+ * - passing props
+ * - rendering dynamic lists using Array.map()
+ *
+ * The application displays user information using a reusable
+ * `User` component and renders additional user entries
+ * from a structured dataset.
  *
  * @module App
  */
@@ -11,16 +16,28 @@
 import User from './data/user_data.jsx';
 
 import './styles/App.css';
+import './styles/Fonts.css';
+import './styles/layout/content.css';
+import './styles/layout/user.css';
+
+/**
+ * Represents a user object used throughout the application.
+ *
+ * @typedef {Object} UserData
+ * @property {string} name - Name of the user.
+ * @property {number} age - Age of the user.
+ * @property {string} gender - Gender of the user.
+ */
 
 /**
  * Static demo user dataset used to populate the UI.
  *
  * @type {{
- *   me: { name: string, age: number, gender: string },
- *   sister: { name: string, age: number, gender: string },
- *   brother: { name: string, age: number, gender: string },
- *   mother: { name: string, age: number, gender: string },
- *   father: { name: string, age: number, gender: string }
+ *   me: UserData,
+ *   sister: UserData,
+ *   brother: UserData,
+ *   mother: UserData,
+ *   father: UserData
  * }}
  */
 const USERDATA = {
@@ -52,10 +69,27 @@ const USERDATA = {
 };
 
 /**
+ * Dataset used for dynamic list rendering in Phase 3.
+ *
+ * Demonstrates how React components can be rendered
+ * from structured arrays using `Array.map()`.
+ *
+ * @type {UserData[]}
+ */
+const userList = [
+  { name: "Test-User-1", age: 27, gender: "male" },
+  { name: "Test-User-2", age: 23, gender: "female" },
+  { name: "Test-User-3", age: 48, gender: "male" },
+  { name: "Test-User-4", age: 68, gender: "female" },
+  { name: "Test-User-5", age: 18, gender: "male" },
+];
+
+/**
  * Root React component.
  *
- * Displays several user entries by passing user data
- * as props to the `User` component.
+ * Renders:
+ * - Phase 2: Static component usage via props
+ * - Phase 3: Dynamic component rendering using array iteration
  *
  * @returns {JSX.Element} Rendered application UI.
  */
@@ -63,6 +97,8 @@ function App() {
   return (
     <div className="app_container">
       <div className='content_container'>
+
+        {/* Phase 2: Basic React Component Imports */}
         <div className="user_data_container">
           <User
             name={USERDATA.me.name}
@@ -82,6 +118,27 @@ function App() {
             gender={USERDATA.brother.gender}
           />
         </div>
+
+        {/* Phase 3: Rendering a List of Components */}
+        <div className='user_list_wrapper' >
+          <h2 className='phase3_h2'>List of Users:</h2>
+          <div className='user_list_container'>
+            <ul>
+              {userList.map((user, index) => {
+                return (
+                  <li className='user' key={index}>
+                    <h2>{user.name}</h2>
+                    <p>Age: {user.age}</p>
+                    <p>Gender: {user.gender}</p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
   );

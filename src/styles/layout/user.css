@@ -5,3 +5,34 @@
     padding-bottom: 24px;
     gap: 24px;
 }
+
+.user_list_wrapper {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.user_list_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding-bottom: 24px;
+}
+
+.user_list_container ul {
+    display: flex;
+    justify-content: center;
+    
+    width: 100%;
+    gap: 24px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}

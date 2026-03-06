@@ -57,3 +57,14 @@ Local: http://localhost:3000/
 - added simple form handling with submit event
 - created dynamic list rendering using map()
 - separated UI components into dedicated folders
+
+## Phase 3
+- introduced dynamic rendering of components using JavaScript arrays
+- implemented list rendering with `Array.map()`
+- created a user list dataset for iterative rendering
+- added `key` props for React list elements
+- separated static component rendering from dynamic list rendering
+- expanded layout structure to support list-based UI sections
+
+
+..in Progress

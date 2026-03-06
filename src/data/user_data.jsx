@@ -2,16 +2,11 @@
  * User display component.
  *
  * Renders basic user information such as name, age, and gender.
- * The data is passed to the component via props.
+ * The user data is passed via props.
  *
- * @param {Object} props - Component properties.
- * @param {string} props.name - Name of the user.
- * @param {number} props.age - Age of the user.
- * @param {string} props.gender - Gender of the user.
- *
+ * @param {import('../App.js').UserData} props - User data object.
  * @returns {JSX.Element} Rendered user information block.
  */
-
 function User({ name, age, gender }) {
   return (
     <div className="user">
