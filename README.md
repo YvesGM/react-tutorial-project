@@ -1,7 +1,7 @@
 # React Tutorial
 
 ## Preview
-Simple React learning project demonstrating component architecture, state management and custom hooks.
+Simple React learning project demonstrating component architecture, state management, custom hooks and API data fetching.
 
 ## Description
 React practice project to learn fundamental React concepts such as:
@@ -12,6 +12,7 @@ React practice project to learn fundamental React concepts such as:
 - local state management with `useState`
 - custom hooks
 - event handling and controlled inputs
+- data fetching from external APIs
 
 ---
 
@@ -21,6 +22,8 @@ React practice project to learn fundamental React concepts such as:
 - practice dynamic rendering with arrays
 - manage state using React hooks
 - separate UI and logic using custom hooks
+- handle side effects with useEffect
+- fetch data from external APIs
 
 ---
 
@@ -45,6 +48,7 @@ src/
     TaskList.jsx
     User.jsx
   hooks/
+    useCatFact.js
     useTasks.js
   styles/
     layout/
@@ -83,7 +87,6 @@ npm start
 ## Development Server
 Local: http://localhost:3000/
 
----
 ---
 
 # Development Workflow
@@ -132,3 +135,10 @@ Local: http://localhost:3000/
 - implemented task deletion with `deleteTask`
 - introduced reusable `DeleteTaskButton` component
 - separated state management logic from UI components
+
+## Phase 6 — Data Fetching & Side Effects
+- introduced `useEffect` for handling side effects
+- implemented external API data fetching
+- created custom hook `useCatFact`
+- added button-triggered API refresh functionality
+- separated API logic from UI components

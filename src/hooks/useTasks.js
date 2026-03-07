@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 /**
  * Custom React hook for managing a todo task list.
@@ -7,9 +7,9 @@ import { useState } from "react"
  * and removing tasks from the list.
  *
  * @returns {{
- *   todoList: string[],
+ *   todoList: {id:number,text:string}[],
  *   addTask: (task: string) => void,
- *   deleteTask: (index: number) => void
+ *   deleteTask: (id: number) => void
  * }} Task state and task management functions.
  */
 export default function useTasks() {
@@ -17,9 +17,13 @@ export default function useTasks() {
     /**
      * List of todo tasks.
      *
-     * @type {[string[], Function]}
+     * @type {[{id:number,text:string}[], React.Dispatch<React.SetStateAction<{id:number,text:string}[]>>]}
      */
     const [todoList, setTodoList] = useState([])
+
+    useEffect(() => {
+        console.log("Task list updated:", todoList)
+    }, [todoList]);
 
     /**
      * Adds a new task to the list.
@@ -40,12 +44,12 @@ export default function useTasks() {
     }
 
     /**
-     * Removes a task from the list by index.
+     * Removes a task from the list by ID.
      *
-     * @param {number} index - Index of the task to remove.
+     * @param {number} id - ID of the task to remove.
      */
-    function deleteTask(index) {
-        setTodoList(prev => prev.filter((_, i) => i !== index))
+    function deleteTask(id) {
+        setTodoList(prev => prev.filter((task) => task.id !== id))
     }
 
     return { todoList, addTask, deleteTask }

@@ -1,7 +1,7 @@
 /* Login-Button */
 .login_button {
     width: 25%;
-    padding: 0.6em 1.2em;
+    padding: 10px;
 
     color: white;
     background-color: #00000086;
@@ -20,7 +20,7 @@
 /* Add-Task-Button */
 .add_task_button {
     width: 25%;
-    padding: 0.6em 1.2em;
+    padding: 10px;
 
     color: white;
     background-color: #00000086;
@@ -32,6 +32,26 @@
 }
 
 .add_task_button:hover {
+    color: #646cff;
+    border: 2px groove #646cff;
+}
+
+/* Add-Task-Button */
+.cat_fact_btn {
+    width: 25%;
+    margin-bottom: 12px;
+    padding: 10px;
+
+    color: white;
+    background-color: #00000086;
+    border: 2px groove rgb(255, 255, 255);
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.cat_fact_btn:hover {
     color: #646cff;
     border: 2px groove #646cff;
 }

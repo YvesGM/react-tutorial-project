@@ -7,7 +7,8 @@
  * - dynamic list rendering using `Array.map()`
  * - local state management using `useState()`
  * - conditional rendering based on application state
- * - custom hooks for state logic separation
+ * - custom hooks for state and API logic separation
+ * - data fetching from external APIs
  * - event handling and controlled inputs
  *
  * The application renders user information and task data
@@ -25,6 +26,7 @@ import LoginButton from './components/ui/LoginButton.jsx';
 import TaskListInput from './components/ui/Input.jsx';
 import AddTaskButton from './components/ui/AddTaskButton.jsx';
 import useTasks from './hooks/useTasks.js';
+import useCatFact from './hooks/useCatFact.js';
 
 import './styles/App.css';
 import './styles/Fonts.css';
@@ -108,6 +110,7 @@ const userList = [
  * - manage login state using `useState()` (Phase 4)
  * - conditionally render UI based on login state
  * - manage task state using a custom hook (`useTasks`) (Phase 5)
+ * - fetch external API data using `useCatFact` (Phase 6)
  * - handle controlled input for task creation
  *
  * @returns {JSX.Element} Rendered application UI.
@@ -143,6 +146,8 @@ function App() {
    * @type {[string, Function]}
    */
   const [newTask, setNewTask] = useState("");
+
+  const { catFact, fetchCatFact } = useCatFact();
 
   /**
    * Handles changes in the task input field.
@@ -252,6 +257,16 @@ function App() {
             tasks={todoList}
             deleteTask={deleteTask}
           />
+        </Card>
+
+        <Card>
+          <button className='cat_fact_btn' onClick={fetchCatFact}>
+            Generate a Cat Fact
+          </button>
+          
+          <p> 
+            {catFact} 
+          </p>
         </Card>
 
       </div>

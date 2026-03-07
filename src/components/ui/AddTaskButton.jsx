@@ -6,7 +6,7 @@
  *
  * @param {Object} props - Component properties.
  * @param {React.ReactNode} props.children - Button label content.
- * @param {Function} props.onClick - Click event handler.
+ * @param {() => void} props.onClick - Click event handler.
  *
  * @returns {JSX.Element} Rendered add-task button.
  */

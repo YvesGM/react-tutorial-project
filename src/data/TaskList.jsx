@@ -7,8 +7,8 @@ import DeleteTaskButton from "../components/ui/DeleteTaskButton"
  * functionality for each task entry.
  *
  * @param {Object} props - Component properties.
- * @param {string[]} props.tasks - Array of task strings.
- * @param {Function} props.deleteTask - Function used to remove tasks.
+ * @param {{id:number,text:string}[]} props.tasks - Array of task objects.
+ * @param {(id:number)=>void} props.deleteTask - Function used to remove tasks.
  *
  * @returns {JSX.Element} Rendered task list.
  */

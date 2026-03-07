@@ -6,7 +6,7 @@
  *
  * @param {Object} props - Component properties.
  * @param {React.ReactNode} props.children - Button label content.
- * @param {Function} props.onClick - Click event handler used to delete a task.
+ * @param {() => void} props.onClick - Click event handler used to delete a task.
  *
  * @returns {JSX.Element} Rendered delete-task button.
  */
